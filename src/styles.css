@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Local Font Declarations (Tajawal Self-Hosted)
+   ========================================================================== */
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/tajawal-v12-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/tajawal-v12-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Tajawal';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/tajawal-v12-latin-700.woff2') format('woff2');
+}
+
+@theme {
+  /* ==========================================================================
+     Black & Luxury Gold Palette (هوية الأسود والذهبي الملكي)
+     ========================================================================== */
+  --color-slate-navy: #121212;     /* أسود فاخر ريسي (بديل الكحلي والزمردي) */
+  --color-slate-dark: #000000;     /* أسود خالص للتباين العالي والتأكيدات */
+  --color-gold-accent: #D4AF37;    /* ذهبي كلاسيكي فاخر */
+  --color-gold-light: #F3E5AB;     /* ذهبي فاتح للتأثيرات والتأشير */
+
+  /* Functional / status colors */
+  --color-success: #155E37;     /* أخضر دافئ للإنجاز */
+  --color-processing: #D97706;  /* برونزي لقيد المعالجة */
+  --color-urgent: #991B1B;      /* أحمر للحالات العاجلة */
+  --color-error: #991B1B;       /* تنبيهات الأخطاء */
+
+  /* Semantic tokens */
+  --color-background: #FFFFFF;       /* خلفية بيضاء نقية */
+  --color-surface: #FFFFFF;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #121212;
+  --color-foreground: #121212;
+  --color-muted: #F8F8F8;           /* خلفيات ثانوية بيضاء مائلة للرمادي الفاتح جداً */
+  --color-muted-foreground: #666666; /* نصوص ثانوية هادئة */
+  --color-secondary: #F4F4F5;
+  --color-secondary-foreground: #121212;
+
+  /* Primary & Accent tokens */
+  --color-primary: #121212;
+  --color-primary-foreground: #FFFFFF;
+
+  --color-accent: #D4AF37;
+  --color-accent-foreground: #121212;
+  --color-highlight: #F3E5AB;
+  --color-border: #E5E5E5;          /* حدود رمادية فاتحة دقيقة جداً */
+
+  --font-sans: "Tajawal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Tajawal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --radius: 1rem;                   /* انحناءات عصرية فائقة النعومة */
+
+  /* ظلال ذهبية وسوداء مخملية */
+  --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 20px 40px -15px rgba(0, 0, 0, 0.07);
+  --shadow-glow: 0 15px 35px -10px rgba(212, 175, 55, 0.25);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #121212;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+}
+
+/* ==========================================================================
+   Page Container Utility
+   ========================================================================== */
+@utility container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-page {
+    padding-inline: 3.5rem;
+  }
+}
+
+@layer utilities {
+  /* زجاج فاخر بلمسة بيضاء شفافة */
+  .glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(229, 229, 229, 0.8);
+  }
+
+  /* تدرج أسود-ذهبي فاخر للعناوين */
+  .text-gradient {
+    background: linear-gradient(135deg, #121212 20%, #D4AF37 80%, #F3E5AB 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* خلفية بوهج ذهبي ناعم مع خلفية بيضاء */
+  .mesh-bg {
+    background-color: #FFFFFF;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(18, 18, 18, 0.03) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(243, 229, 171, 0.06) 0px, transparent 60%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* حالات الشكاوى المتناسقة مع الثيم */
+  .status-success {
+    background-color: rgba(21, 94, 55, 0.08);
+    color: var(--color-success);
+    border: 1px solid rgba(21, 94, 55, 0.2);
+  }
+  .status-processing {
+    background-color: rgba(217, 119, 6, 0.08);
+    color: var(--color-processing);
+    border: 1px solid rgba(217, 119, 6, 0.2);
+  }
+  .status-urgent {
+    background-color: rgba(153, 27, 27, 0.08);
+    color: var(--color-urgent);
+    border: 1px solid rgba(153, 27, 27, 0.2);
+  }
+
+  /* أخطاء التنسيق والتنبيهات */
+  .form-error {
+    color: var(--color-error);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    margin-top: 0.375rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .input-error {
+    border-color: var(--color-error) !important;
+  }
+  .input-error:focus {
+    outline-color: var(--color-error) !important;
+  }
+}
+
+/* حركة طفو ناعمة وانسيابية للبطاقات */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
