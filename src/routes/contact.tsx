@@ -17,7 +17,7 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const CONTACT_EMAIL = "moet-center@gmail.com";
+const CONTACT_EMAIL = "uaeresolve.com@gmail.com";
 
 function ContactPage() {
   return (

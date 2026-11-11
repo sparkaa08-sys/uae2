@@ -13,7 +13,7 @@ const legalLinks = [
   { to: "/terms", label: "الشروط والأحكام" },
 ] as const;
 
-const EMAIL = "moet-center@gmail.com";
+const EMAIL = "uaeresolve.com@gmail.com";
 
 const linkClass =
   "inline-flex min-h-9 items-center text-sm font-medium text-gray-400 transition-colors duration-200 hover:text-white focus-visible:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)]";
